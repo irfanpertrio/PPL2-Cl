@@ -11,7 +11,7 @@ class M_mahasiswa extends Model
     protected $allowedFields = ['NIM', 'Nama', 'Umur'];
 
     /**
-     ** define
+    ** define
      * @return var  $db
      */
     public function define()
@@ -20,17 +20,17 @@ class M_mahasiswa extends Model
     }
 
     /**
-     ** get_mahasiswa
+    ** get_mahasiswa
      * TODO: Mencari dan menampilkan data semua Mahasiswa
      */
-    public function get_mahasiswa()
+    public function get_mahasiswa()    
     {
         $data = $this->db->query(MAHASISWA)->getResultArray();
         return $data;
     }
 
     /**
-     ** search_mahasiswa
+    ** search_mahasiswa
      * @param  array $data
      * TODO: Mencari data mahasiswa 
      */
@@ -43,9 +43,9 @@ class M_mahasiswa extends Model
                                         ORDER BY Nama")->getResultArray();
         return $data;
     }
-
+    
     /**
-     ** input_mahasiswa
+    ** input_mahasiswa
      * @param  array $data
      * TODO: Menginputkan data Mahasiswa
      */
@@ -54,20 +54,22 @@ class M_mahasiswa extends Model
         $nim    = $data['NIM'];
         $nama   = $data['Nama'];
         $umur   = $data['Umur'];
-        $query  = $this->db->prepare(static function ($db) {
-            return $db->table('mahasiswa')->insert([
-                    'Nama'  => '',
-                    'NIM'   => '',
-                    'Umur'  => '',
-                ]);
+        $query  = $this->db->prepare(static function ($db)
+        {
+            return $db->table('mahasiswa')->insert
+            ([
+                'Nama'  => '',
+                'NIM'   => '',
+                'Umur'  => '',
+            ]);
         });
-
+        
         $result = $query->execute($nama, $nim, $umur);
         return $result;
     }
 
     /**
-     ** update_mahasiswa
+    ** update_mahasiswa
      * @param  array $data
      * TODO: Memperbarui data mahasiswa 
      */
@@ -80,15 +82,13 @@ class M_mahasiswa extends Model
         $sql    = 'UPDATE mahasiswa 
                         SET Nama=:nama:, Umur=:umur:, NIM=:nim: 
                         WHERE id =:id:';
-        $result = $this->db->query(
-            $sql,
-            [
-                'id'    => $id,
-                'nama'  => $nama,
-                'nim'   => $nim,
-                'umur'  => $umur,
-            ]
-        );
+        $result = $this->db->query($sql, 
+        [
+            'id'    => $id,
+            'nama'  => $nama,
+            'nim'   => $nim,
+            'umur'  => $umur,
+        ]);
 
         return $result;
     }
