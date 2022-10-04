@@ -1,6 +1,6 @@
 <h2>Form Input Mahasiswa</h2>
 <form action="/mahasiswa/input" method="POST">
-    <?php csrf_field(); ?>
+    <?php echo csrf_field(); ?>
     <table width="25%" border="0" align="center">
 
         <tr>

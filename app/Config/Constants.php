@@ -78,9 +78,9 @@ defined('EXIT_DATABASE')       || define('EXIT_DATABASE', 8);       // database 
 defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9);      // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125);    // highest automatically-assigned error code
 
-defined('CONTENT')             || define('CONTENT', 'content_view');        //* call variable Contect_view
-defined('TEMPLATE')            || define('TEMPLATE', 'Layout/V_template');  //* call view V_template
-defined('MAHASISWA')           || define('MAHASISWA', 'SELECT * FROM mahasiswa ORDER BY Nama');  //* query select * from table mahasiswa
+defined('CONTENT')             || define('CONTENT', 'content_view');                            //* call variable Contect_view
+defined('TEMPLATE')            || define('TEMPLATE', 'Layout/V_template');                      //* call view V_template
+defined('MAHASISWA')           || define('MAHASISWA', 'SELECT * FROM mahasiswa ORDER BY Nama'); //* query select * from table mahasiswa
 
 
 /**

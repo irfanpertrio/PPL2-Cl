@@ -19,8 +19,9 @@
       <tr>
         <th>
           <h3 align="left">
-            <?php echo anchor('', "Home") ?>
+            <?php echo anchor('dashboard', "Home") ?>
             <?php echo anchor('mahasiswa', "Mahasiswa") ?>
+            <?php echo anchor('logout', "Logout") ?>
           </h3>
         </th>
       </tr>

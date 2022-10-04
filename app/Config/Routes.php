@@ -34,17 +34,22 @@ $routes->set404Override();
  */
 
 //? Routes to Page
-$routes->get('/', 'c_home::display');                       // Redirect to Dashboard page
-$routes->get('/mahasiswa', 'c_mahasiswa::display');         // Redirect to table of List Mahasiswa
-$routes->get('/mahasiswa/form_input', 'c_mahasiswa::display_input');    // Redirect to form Input page
-$routes->get('/mahasiswa/form_update/(:any)', 'c_mahasiswa::display_update/$1');    // Redirect to form Update page
-$routes->get('/mahasiswa/detail/(:any)', 'c_mahasiswa::display_one_mahasiswa/$1');  // Redirect to Table of detail mahasiswa
+$routes->get('/', 'c_login::display');                                          // Redirect to Dashboard page
+$routes->group('', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/dashboard', 'c_home::display');                              // Redirect to function Lo    
+    $routes->get('/mahasiswa', 'c_mahasiswa::display');                         // Redirect to Table of detail mahasiswa
+    $routes->get('/mahasiswa/form_input', 'c_mahasiswa::display_input');        // Redirect to form Input page
+    $routes->get('/mahasiswa/form_update/(:any)', 'c_mahasiswa::display_update/$1');    // Redirect to form Update page
+    $routes->get('/mahasiswa/detail/(:any)', 'c_mahasiswa::display_one_mahasiswa/$1');  // Redirect to Table of detail mahasiswa
+});
 
+$routes->get('/login', 'c_login::auth');                                // Redirect to function Login
+$routes->get('/logout', 'c_login::logout');                             // Redirect to function Logout
+$routes->post('/mahasiswa/input', 'c_mahasiswa::input');                // Redirect to function Input
+$routes->get('/mahasiswa/search', 'c_mahasiswa::search');               // Redirect to function Search
+$routes->get('/mahasiswa/delete/(:any)', 'c_mahasiswa::delete/$1');     // Redirect to function Delete
+$routes->post('/mahasiswa/update/(:any)', 'c_mahasiswa::update/$1');    // Redirect to funtion Update
 //? Routes to Function
-$routes->post('/mahasiswa/input', 'c_mahasiswa::input');    // Redirect to function Input
-$routes->get('/mahasiswa/search', 'c_mahasiswa::search');   // Redirect to function Search
-$routes->get('/mahasiswa/delete/(:any)', 'c_mahasiswa::delete/$1');    // Redirect to function Delete
-$routes->post('/mahasiswa/update/(:any)', 'c_mahasiswa::update/$1');   // Redirect to funtion Update
 
 /* 
  * --------------------------------------------------------------------

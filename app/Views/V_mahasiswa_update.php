@@ -1,6 +1,6 @@
 <h2>Form Update Mahasiswa</h2>
 <form action="<?php echo '/mahasiswa/update/' . $mahasiswa['id'] ?>" method="POST">
-    <?php csrf_field() ?>
+    <?php echo csrf_field() ?>
     <table width="25%" border="0" align="center">
 
         <tr>

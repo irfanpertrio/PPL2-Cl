@@ -20,6 +20,6 @@
         </table>
         <br>
 
-        <button><?php anchor('mahasiswa', 'Back') ?></button>
+        <a href="/mahasiswa"><button>Back</button></a>
     </center>
 </div>

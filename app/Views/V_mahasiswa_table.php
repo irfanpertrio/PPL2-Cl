@@ -3,7 +3,7 @@
 
         <?php if (session()->getFlashdata('pesan')) : ?>
             <script>
-                alert('<?php session()->getFlashdata('pesan'); ?>')
+                alert('<?php echo session()->getFlashdata('pesan'); ?>')
             </script>
         <?php endif ?>
 
@@ -21,8 +21,7 @@
                 <th colspan="3">Action</th>
             </tr>
 
-            <?php foreach ($mahasiswa as $row) 
-            { ?>
+            <?php foreach ($mahasiswa as $row) { ?>
                 <tr>
                     <td align="center">
                         <?php echo $row['NIM'] ?>
@@ -34,13 +33,13 @@
                         <?php echo $row['Umur'] ?>
                     </td>
                     <td align="center">
-                        <button><?php anchor('mahasiswa/detail/' . $row['id'], 'View') ?></button>
+                        <a href="/mahasiswa/detail/<?php $row['id']; ?>"><button>Detail</button></a>
                     </td>
                     <td align="center">
-                        <button><?php anchor('mahasiswa/form_update/' . $row['id'], 'Edit') ?></button>
+                        <a href="mahasiswa/form_update/<?php $row['id']; ?>"><button>Edit</button></a>
                     </td>
                     <td align="center">
-                        <button><?php anchor('mahasiswa/delete/' . $row['id'], 'Delete') ?></button>
+                        <a href="mahasiswa/delete/<?php $row['id']; ?>"><button>Delete</button></a>
                     </td>
                 </tr>
             <?php
