@@ -43,13 +43,13 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->get('/mahasiswa/detail/(:any)', 'c_mahasiswa::display_one_mahasiswa/$1');  // Redirect to Table of detail mahasiswa
 });
 
+//? Routes to Function
 $routes->get('/login', 'c_login::auth');                                // Redirect to function Login
 $routes->get('/logout', 'c_login::logout');                             // Redirect to function Logout
 $routes->post('/mahasiswa/input', 'c_mahasiswa::input');                // Redirect to function Input
 $routes->get('/mahasiswa/search', 'c_mahasiswa::search');               // Redirect to function Search
 $routes->get('/mahasiswa/delete/(:any)', 'c_mahasiswa::delete/$1');     // Redirect to function Delete
 $routes->post('/mahasiswa/update/(:any)', 'c_mahasiswa::update/$1');    // Redirect to funtion Update
-//? Routes to Function
 
 /* 
  * --------------------------------------------------------------------

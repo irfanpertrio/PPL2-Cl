@@ -15,7 +15,7 @@ class C_login extends BaseController
 
     /**
      ** display
-     * @return  function    view Login page
+     * @return  function  view Login page
      * TODO: Menampilkan form Login
      */
     public function display()
@@ -34,10 +34,12 @@ class C_login extends BaseController
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
         $data = $this->admin_model->where('username', $username)->first();
-        if ($data) {
+        if ($data) 
+        {
             $pass = $data['password'];
             $verify_pass = (MD5($password) === $pass);
-            if ($verify_pass) {
+            if ($verify_pass) 
+            {
                 $session_data =
                     [
                         'id'            => $data['id'],
@@ -47,16 +49,25 @@ class C_login extends BaseController
                     ];
                 $this->session->set($session_data);
                 return redirect()->to('dashboard');
-            } else {
+            } 
+            else 
+            {
                 $this->session->setFlashdata('pesan', 'Wrong Password');
                 return redirect()->to('');
             }
-        } else {
+        } 
+        else 
+        {
             $this->session->setFlashdata('pesan', 'Username not Found');
             return redirect()->to('');
         }
     }
 
+    /**
+     ** logout
+     * @retun  void
+     * TODO: Mengakhiri session untuk semua halaman
+     */
     public function logout()
     {
         $session = session();

@@ -20,7 +20,9 @@ class M_admin extends Model
     }
 
     /**
-     ** get_mahasiswa
+     ** get_admin
+     * @param  var $username
+     * @param  var $password
      * TODO: Login
      */
     public function get_admin($username, $password)
