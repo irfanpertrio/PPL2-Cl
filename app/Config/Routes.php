@@ -43,7 +43,7 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->get('/dashboard/temp',                     'tugasMahasiswa\c_home::display');                          // Redirect to Dashboard page
     $routes->get('/mahasiswa/temp',                     'tugasMahasiswa\c_mahasiswa::display');                     // Redirect to Table list of mahasiswa
     $routes->get('/mahasiswa/temp/form_input',          'tugasMahasiswa\c_mahasiswa::display_input');               // Redirect to Input form page
-    $routes->get('/mahasiswa/temp/detail/(:any)',       'tugasMahasiswa\c_mahasiswa::display_one_mahasiswa/$1');    // Redirect to Table of detail mahasiswa
+    $routes->get('/mahasiswa/temp/detail/(:any)',       'tugasMahasiswa\c_mahasiswa::display_detail/$1');           // Redirect to Table of detail mahasiswa
     $routes->get('/mahasiswa/temp/form_update/(:any)',  'tugasMahasiswa\c_mahasiswa::display_update/$1');           // Redirect to Update form page
 });
 

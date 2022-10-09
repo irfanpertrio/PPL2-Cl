@@ -62,28 +62,7 @@ class C_mahasiswa extends BaseController
         $data[CONTENT]      = "tugasTemplate/v_update";
         echo view(TEMPLATE_2, $data);
     }
-
-    /**
-     ** input
-     * @return  function    redirect to page table of list Mahasiswa
-     * TODO: Menyimpan data baru Mahasiswa
-     */
-    public function input()
-    {
-        $data =
-            [
-                'NIM'   => $this->request->getVar('nim'),
-                'Nama'  => $this->request->getVar('nama'),
-                'Umur'  => $this->request->getVar('umur'),
-            ];
-
-        $result = $this->mahasiswa_model->input_mahasiswa($data);
-        if ($result) {
-            session()->setFlashdata('pesan', 'Data berhasil ditambahkan');
-            return redirect()->to('mahasiswa');
-        }
-    }
-
+    
     /**
      ** search
      * @return  function    redirect to page table of list Mahasiswa
@@ -98,43 +77,5 @@ class C_mahasiswa extends BaseController
         $data['mahasiswa']  = $this->mahasiswa_model->search_mahasiswa($data);
         $data[CONTENT]      = "tugasTemplate/v_table";
         return view(TEMPLATE_2, $data);
-    }
-
-    /**
-     ** update
-     * @param   var         $id
-     * @return  function    view table list of Mahasiswa
-     * TODO: Memperbarui data Mahasiswa
-     */
-    public function update($id)
-    {
-        $data =
-            [
-                'id'    => $id,
-                'nim'   => $this->request->getVar('nim'),
-                'nama'  => $this->request->getVar('nama'),
-                'umur'  => $this->request->getVar('umur'),
-            ];
-
-        $result = $this->mahasiswa_model->update_mahasiswa($data);
-        if ($result) {
-            session()->setFlashdata('pesan', 'Data berhasil diupdate');
-            return redirect()->route('mahasiswa');
-        }
-    }
-
-    /**
-     ** delete
-     * @param   var         $id
-     * @return  function    view table list of Mahasiswa
-     * TODO: Menghapus data Mahasiswa
-     */
-    public function delete($id)
-    {
-        $data['mahasiswa'] = $this->mahasiswa_model->delete($id);
-        if ($data) {
-            session()->setFlashdata('pesan', 'Data berhasil dihapus');
-            return redirect()->to('mahasiswa');
-        }
     }
 }

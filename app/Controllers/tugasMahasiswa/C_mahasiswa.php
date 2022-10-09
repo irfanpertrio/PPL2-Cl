@@ -30,7 +30,7 @@ class C_mahasiswa extends BaseController
      * @return  function    view table of detail Mahasiswa
      * TODO: Menampilkan tabel detail Mahasiswa
      */
-    public function display_one_mahasiswa($id)
+    public function display_detail($id)
     {
         $data['mahasiswa'] = $this->mahasiswa_model->find($id);
         if (empty($data['mahasiswa'])) 
