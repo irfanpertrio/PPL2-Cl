@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\tugasTemplate;
 
 use App\Models\m_mahasiswa;
+use App\Controllers\BaseController;
 
 class C_mahasiswa extends BaseController
 {
@@ -11,45 +12,39 @@ class C_mahasiswa extends BaseController
         $this->mahasiswa_model = new M_mahasiswa();
     }
 
-    /**
+    /** 
      ** display
      * @return  function    view table list of Mahasiswa
      * TODO: Menampilkan tabel list semua Mahasiswa
      */
     public function display()
     {
-        $data[CONTENT]      = "V_mahasiswa_table";
+        $data['style']      = STYLE;
+        $data['navbar']     = NAVBAR;
+        $data['footer']     = FOOTER;
         $data['mahasiswa']  = $this->mahasiswa_model->get_mahasiswa();
-        echo view(TEMPLATE, $data);
+        $data[CONTENT]      = "tugasTemplate/V_table";
+        echo view(TEMPLATE_2, $data);
     }
 
     /**
-     ** display_one_mahasiswa
+     ** display_detail
      * @param   var         $id
      * @return  function    view table of detail Mahasiswa
      * TODO: Menampilkan tabel detail Mahasiswa
      */
-    public function display_one_mahasiswa($id)
+    public function display_detail($id)
     {
+        $data['style']      = STYLE;
+        $data['navbar']     = NAVBAR;
+        $data['footer']     = FOOTER;
         $data['mahasiswa'] = $this->mahasiswa_model->find($id);
-        if (empty($data['mahasiswa'])) 
-        {
+        if (empty($data['mahasiswa'])) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Mahasiswa Tidak ditemukan !');
         }
 
-        $data[CONTENT] = "v_mahasiswa_detail";
-        echo view(TEMPLATE, $data);
-    }
-
-    /**
-     ** display_input
-     * @return  function    view form input Mahasiswa
-     * TODO: Menampilkan form input Mahasiswa
-     */
-    public function display_input()
-    {
-        $data[CONTENT] = "v_mahasiswa_input";
-        echo view(TEMPLATE, $data);
+        $data[CONTENT] = "tugasTemplate/v_table_detail";
+        echo view(TEMPLATE_2, $data);
     }
 
     /**
@@ -58,11 +53,14 @@ class C_mahasiswa extends BaseController
      * @return  function    view form update Mahasiswa
      * TODO: Menampilkan form update Mahasiswa
      */
-    function display_update($id)
+    public function display_update($id)
     {
+        $data['style']      = STYLE;
+        $data['navbar']     = NAVBAR;
+        $data['footer']     = FOOTER;
         $data['mahasiswa']  = $this->mahasiswa_model->find($id);
-        $data[CONTENT]      = "v_mahasiswa_update";
-        return view(TEMPLATE, $data);
+        $data[CONTENT]      = "tugasTemplate/v_update";
+        echo view(TEMPLATE_2, $data);
     }
 
     /**
@@ -80,8 +78,7 @@ class C_mahasiswa extends BaseController
             ];
 
         $result = $this->mahasiswa_model->input_mahasiswa($data);
-        if ($result) 
-        {
+        if ($result) {
             session()->setFlashdata('pesan', 'Data berhasil ditambahkan');
             return redirect()->to('mahasiswa');
         }
@@ -94,11 +91,13 @@ class C_mahasiswa extends BaseController
      */
     public function search()
     {
-
+        $data['style']      = STYLE;
+        $data['navbar']     = NAVBAR;
+        $data['footer']     = FOOTER;
         $data['nama']       = $this->request->getVar('nama');
         $data['mahasiswa']  = $this->mahasiswa_model->search_mahasiswa($data);
-        $data[CONTENT]      = "v_mahasiswa_table";
-        return view(TEMPLATE, $data);
+        $data[CONTENT]      = "tugasTemplate/v_table";
+        return view(TEMPLATE_2, $data);
     }
 
     /**
@@ -118,8 +117,7 @@ class C_mahasiswa extends BaseController
             ];
 
         $result = $this->mahasiswa_model->update_mahasiswa($data);
-        if ($result) 
-        {
+        if ($result) {
             session()->setFlashdata('pesan', 'Data berhasil diupdate');
             return redirect()->route('mahasiswa');
         }
@@ -134,8 +132,7 @@ class C_mahasiswa extends BaseController
     public function delete($id)
     {
         $data['mahasiswa'] = $this->mahasiswa_model->delete($id);
-        if ($data) 
-        {
+        if ($data) {
             session()->setFlashdata('pesan', 'Data berhasil dihapus');
             return redirect()->to('mahasiswa');
         }

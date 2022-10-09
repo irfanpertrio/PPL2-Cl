@@ -78,9 +78,14 @@ defined('EXIT_DATABASE')       || define('EXIT_DATABASE', 8);       // database 
 defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9);      // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125);    // highest automatically-assigned error code
 
-defined('CONTENT')             || define('CONTENT', 'content_view');                            //* call variable Contect_view
-defined('TEMPLATE')            || define('TEMPLATE', 'Layout/V_template');                      //* call view V_template
-defined('MAHASISWA')           || define('MAHASISWA', 'SELECT * FROM mahasiswa ORDER BY Nama'); //* query select * from table mahasiswa
+defined('STYLE')               || define('STYLE', 'layout/v_style');                                //* call variable style
+defined('NAVBAR')              || define('NAVBAR', 'layout/v_navbar');                              //* call variable navbar
+defined('FOOTER')              || define('FOOTER', 'layout/v_footer');                              //* call variable navbar
+defined('CONTENT')             || define('CONTENT', 'content_view');                                //* call variable Contect_view
+defined('IDENTITAS')           || define('IDENTITAS', '<b>IRFAN PERTRIO NUGROHO</b><br>201511044'); //* call view V_template
+defined('MAHASISWA')           || define('MAHASISWA', 'SELECT * FROM mahasiswa ORDER BY Nama');     //* query select * from table mahasiswa
+defined('TEMPLATE_INTERNAL')   || define('TEMPLATE_1', 'template/V_template');                      //* call view V_template
+defined('TEMPLATE_EKSTERNAL')  || define('TEMPLATE_2', 'template/V_template_eksternal');            //* call view V_template
 
 
 /**

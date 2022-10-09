@@ -7,13 +7,13 @@
             </script>
         <?php endif ?>
 
-        <form action="/mahasiswa/search" method="GET">
-            <input type="text" placeholder="Search..." name="nama">
-            <input type="submit" value="search">
-            <input type="submit" value="Reset">
+        <form action="/mahasiswa/temp/search" method="GET">
+            <input style="font-size:1vw;" type="text" placeholder="Search..." name="nama">
+            <input style="font-size:1vw;" type="submit" value="search">
+            <input style="font-size:1vw;" type="submit" value="Reset">
         </form>
 
-        <table border="2" style="width:50%; margin-top:25px">
+        <table border="1" style="width:50%; margin-top:2vw; font-size:1.4vw;">
             <tr>
                 <th>NIM</th>
                 <th>Nama</th>
@@ -33,22 +33,21 @@
                         <?php echo $row['Umur'] ?>
                     </td>
                     <td align="center">
-                        <a href="/mahasiswa/detail/<?php $row['id']; ?>"><button>Detail</button></a>
+                        <a href="<?php echo '/mahasiswa/temp/detail/' . $row['id']; ?>"><button style="font-size:1vw;">Detail</button></a>
                     </td>
                     <td align="center">
-                        <a href="mahasiswa/form_update/<?php $row['id']; ?>"><button>Edit</button></a>
+                        <a href="<?php echo '/mahasiswa/temp/form_update/' . $row['id']; ?>"><button style="font-size:1vw;">Edit</button></a>
                     </td>
                     <td align="center">
-                        <a href="mahasiswa/delete/<?php $row['id']; ?>"><button>Delete</button></a>
+                        <a href="<?php echo '/mahasiswa/temp/delete/' . $row['id']; ?>"><button style="font-size:1vw;">Delete</button></a>
                     </td>
                 </tr>
             <?php
             } ?>
         </table>
 
-        <br>
-        <a href="/mahasiswa/form_input">
-            <button>Input Data Mahasewa</button>
+        <a href="/mahasiswa/temp/form_input">
+            <button style="font-size:1vw; margin-top:2vw;">Input Data Mahasewa</button>
         </a>
 
     </center>

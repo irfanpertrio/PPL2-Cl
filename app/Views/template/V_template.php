@@ -9,32 +9,33 @@
 </head>
 
 <body>
-    <table border=1 align="center" width="100%">
+    <table border=1 align="center" width="100%" style="overflow-x:auto; overflow-y:auto;">
         <thead>
             <tr>
-                <th height=100>
+                <th style="font-size:1.1vw; height: 7vw;">
                     <h3> HEADER </h3>
                 </th>
             </tr>
             <tr>
                 <th>
-                    <h3 align="left">
-                        <?php echo anchor('dashboard', "Home") ?>
-                        <?php echo anchor('mahasiswa', "Mahasiswa") ?>
+                    <h3 align=" left" style="font-size:1.4vw;">
+                        <?php echo anchor('dashboard/temp', "Home") ?>
+                        <?php echo anchor('mahasiswa/temp', "Mahasiswa") ?>
+                        <?php echo anchor('dashboard', "Template") ?>
                         <?php echo anchor('logout', "Logout") ?>
                     </h3>
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr height=500>
+            <tr style="height: 35vw;">
                 <th>
                     <h3><?php echo view($content_view) ?><h3>
                 </th>
             </tr>
         </tbody>
         <tfoot>
-            <tr height=100 align="center">
+            <tr style="font-size:1.1vw; height: 7vw;" align="center">
                 <td>
                     <h3>FOOTER</h3>
                 </td>

@@ -1,6 +1,6 @@
 <div>
     <center>
-        <table border="2" style="width:50%">
+        <table class="table">
             <tr>
                 <th>NIM</th>
                 <th>Nama</th>
@@ -20,6 +20,6 @@
         </table>
         <br>
 
-        <a href="/mahasiswa"><button>Back</button></a>
+        <a href="/mahasiswa/temp"><button>Back</button></a>
     </center>
 </div>

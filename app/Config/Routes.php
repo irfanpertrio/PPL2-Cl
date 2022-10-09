@@ -32,24 +32,29 @@ $routes->set404Override();
  * Route Definitions
  * --------------------------------------------------------------------
  */
-
+$routes->get('/',                                       'tugasTemplate\c_login::display');                              // Redirect to Login page
 //? Routes to Page
-$routes->get('/', 'c_login::display');                                          // Redirect to Dashboard page
 $routes->group('', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/dashboard', 'c_home::display');                              // Redirect to function Lo    
-    $routes->get('/mahasiswa', 'c_mahasiswa::display');                         // Redirect to Table of detail mahasiswa
-    $routes->get('/mahasiswa/form_input', 'c_mahasiswa::display_input');        // Redirect to form Input page
-    $routes->get('/mahasiswa/form_update/(:any)', 'c_mahasiswa::display_update/$1');    // Redirect to form Update page
-    $routes->get('/mahasiswa/detail/(:any)', 'c_mahasiswa::display_one_mahasiswa/$1');  // Redirect to Table of detail mahasiswa
+    $routes->get('/welcome',                            'tugasTemplate\c_home::welcome');                           // Redirect to Selamat datang page
+    $routes->get('/dashboard',                          'tugasTemplate\c_home::dashboard');                         // Redirect to Dashboard page
+    $routes->get('/mahasiswa',                          'tugasTemplate\c_mahasiswa::display');                      // Redirect to Table list of mahasiswa
+    $routes->get('/mahasiswa/detail/(:any)',            'tugasTemplate\c_mahasiswa::display_detail/$1');            // Redirect to Table of detail mahasiswa
+    $routes->get('/mahasiswa/form_update/(:any)',       'tugasTemplate\c_mahasiswa::display_update/$1');            // Redirect to Update form page
+    $routes->get('/dashboard/temp',                     'tugasMahasiswa\c_home::display');                          // Redirect to Dashboard page
+    $routes->get('/mahasiswa/temp',                     'tugasMahasiswa\c_mahasiswa::display');                     // Redirect to Table list of mahasiswa
+    $routes->get('/mahasiswa/temp/form_input',          'tugasMahasiswa\c_mahasiswa::display_input');               // Redirect to Input form page
+    $routes->get('/mahasiswa/temp/detail/(:any)',       'tugasMahasiswa\c_mahasiswa::display_one_mahasiswa/$1');    // Redirect to Table of detail mahasiswa
+    $routes->get('/mahasiswa/temp/form_update/(:any)',  'tugasMahasiswa\c_mahasiswa::display_update/$1');           // Redirect to Update form page
 });
 
 //? Routes to Function
-$routes->get('/login', 'c_login::auth');                                // Redirect to function Login
-$routes->get('/logout', 'c_login::logout');                             // Redirect to function Logout
-$routes->post('/mahasiswa/input', 'c_mahasiswa::input');                // Redirect to function Input
-$routes->get('/mahasiswa/search', 'c_mahasiswa::search');               // Redirect to function Search
-$routes->get('/mahasiswa/delete/(:any)', 'c_mahasiswa::delete/$1');     // Redirect to function Delete
-$routes->post('/mahasiswa/update/(:any)', 'c_mahasiswa::update/$1');    // Redirect to funtion Update
+$routes->get('/login',                              'tugasMahasiswa\c_login::auth');            // Redirect to function Login
+$routes->get('/logout',                             'tugasMahasiswa\c_login::logout');          // Redirect to function Logout
+$routes->post('/mahasiswa/input',                   'tugasMahasiswa\c_mahasiswa::input');       // Redirect to function Input
+$routes->get('/mahasiswa/search',                   'tugasTemplate\c_mahasiswa::search');       // Redirect to function Search
+$routes->get('/mahasiswa/temp/search',              'tugasMahasiswa\c_mahasiswa::search');      // Redirect to function Search
+$routes->get('/mahasiswa/delete/(:any)',            'tugasMahasiswa\c_mahasiswa::delete/$1');   // Redirect to function Delete
+$routes->post('/mahasiswa/update/(:any)',           'tugasMahasiswa\c_mahasiswa::update/$1');   // Redirect to funtion Update
 
 /* 
  * --------------------------------------------------------------------
