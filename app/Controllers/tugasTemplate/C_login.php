@@ -7,10 +7,10 @@ use App\Controllers\BaseController;
 class C_login extends BaseController
 {
     /**
-     ** display
+     ** display_login
      * TODO: Menampilkan halaman Login
      */
-    public function display()
+    public function display_login()
     {
         $data['style']  = STYLE;
         $data[CONTENT]  = "tugasTemplate/v_login";

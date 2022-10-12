@@ -7,6 +7,18 @@ use App\Controllers\BaseController;
 class C_home extends BaseController
 {
     /**
+     ** dashboard
+     * TODO: Menampilkan halaman Dashboard
+     */
+    public function dashboard()
+    {
+        $data['style']  = STYLE;
+        $data['navbar'] = NAVBAR;
+        $data[CONTENT]  = "tugasTemplate/v_home";
+        echo view(TEMPLATE_2, $data);
+    }
+
+    /**
      ** welcome
      * TODO: Menampilkan halaman Selamat Datang
      */
@@ -16,18 +28,6 @@ class C_home extends BaseController
         $data['navbar'] = NAVBAR;
         $data['footer'] = FOOTER;
         $data[CONTENT]  = "tugasTemplate/v_selamat_datang";
-        echo view(TEMPLATE_2, $data);
-    }
-
-    /**
-     ** display
-     * TODO: Menampilkan halaman Dashboard
-     */
-    public function dashboard()
-    {
-        $data['style']  = STYLE;
-        $data['navbar'] = NAVBAR;
-        $data[CONTENT]  = "tugasTemplate/v_home";
         echo view(TEMPLATE_2, $data);
     }
 }

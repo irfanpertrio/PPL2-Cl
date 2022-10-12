@@ -32,12 +32,12 @@ $routes->set404Override();
  * Route Definitions
  * --------------------------------------------------------------------
  */
-$routes->get('/',                                       'tugasTemplate\c_login::display');                              // Redirect to Login page
+$routes->get('/',                                       'tugasTemplate\c_login::display_login');                              // Redirect to Login page
 //? Routes to Page
 $routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->get('/welcome',                            'tugasTemplate\c_home::welcome');                           // Redirect to Selamat datang page
     $routes->get('/dashboard',                          'tugasTemplate\c_home::dashboard');                         // Redirect to Dashboard page
-    $routes->get('/mahasiswa',                          'tugasTemplate\c_mahasiswa::display');                      // Redirect to Table list of mahasiswa
+    $routes->get('/mahasiswa',                          'tugasTemplate\c_mahasiswa::display_table');                      // Redirect to Table list of mahasiswa
     $routes->get('/mahasiswa/detail/(:any)',            'tugasTemplate\c_mahasiswa::display_detail/$1');            // Redirect to Table of detail mahasiswa
     $routes->get('/mahasiswa/form_update/(:any)',       'tugasTemplate\c_mahasiswa::display_update/$1');            // Redirect to Update form page
     $routes->get('/dashboard/temp',                     'tugasMahasiswa\c_home::display');                          // Redirect to Dashboard page

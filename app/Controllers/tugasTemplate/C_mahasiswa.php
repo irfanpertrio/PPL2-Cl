@@ -13,11 +13,11 @@ class C_mahasiswa extends BaseController
     }
 
     /** 
-     ** display
+     ** display_table
      * @return  function    view table list of Mahasiswa
      * TODO: Menampilkan tabel list semua Mahasiswa
      */
-    public function display()
+    public function display_table()
     {
         $data['style']      = STYLE;
         $data['navbar']     = NAVBAR;
@@ -62,7 +62,7 @@ class C_mahasiswa extends BaseController
         $data[CONTENT]      = "tugasTemplate/v_update";
         echo view(TEMPLATE_2, $data);
     }
-    
+
     /**
      ** search
      * @return  function    redirect to page table of list Mahasiswa

@@ -33,8 +33,7 @@ class C_mahasiswa extends BaseController
     public function display_detail($id)
     {
         $data['mahasiswa'] = $this->mahasiswa_model->find($id);
-        if (empty($data['mahasiswa'])) 
-        {
+        if (empty($data['mahasiswa'])) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Mahasiswa Tidak ditemukan !');
         }
 
@@ -81,10 +80,9 @@ class C_mahasiswa extends BaseController
             ];
 
         $result = $this->mahasiswa_model->input_mahasiswa($data);
-        if ($result) 
-        {
+        if ($result) {
             session()->setFlashdata('pesan', 'Data berhasil ditambahkan');
-            return redirect()->to('mahasiswa');
+            return redirect()->to('mahasiswa/temp');
         }
     }
 
@@ -119,10 +117,9 @@ class C_mahasiswa extends BaseController
             ];
 
         $result = $this->mahasiswa_model->update_mahasiswa($data);
-        if ($result) 
-        {
+        if ($result) {
             session()->setFlashdata('pesan', 'Data berhasil diupdate');
-            return redirect()->route('mahasiswa');
+            return redirect()->route('mahasiswa/temp');
         }
     }
 
@@ -135,10 +132,9 @@ class C_mahasiswa extends BaseController
     public function delete($id)
     {
         $data['mahasiswa'] = $this->mahasiswa_model->delete($id);
-        if ($data) 
-        {
+        if ($data) {
             session()->setFlashdata('pesan', 'Data berhasil dihapus');
-            return redirect()->to('mahasiswa');
+            return redirect()->to('mahasiswa/temp');
         }
     }
 }

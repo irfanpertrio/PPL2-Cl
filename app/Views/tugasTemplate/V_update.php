@@ -1,3 +1,7 @@
+<!--
+==================================================
+Table Update Content
+================================================== -->
 <?php echo view($navbar); ?>
 
 <form action="<?php echo '/mahasiswa/update/' . $mahasiswa['id'] ?>" method="POST">
@@ -40,6 +44,7 @@
             </div>
         </div>
     </div>
+
     <section id="button">
         <div class="contact-form">
             <div class="height d-flex justify-content-center align-items-center">
@@ -51,8 +56,8 @@
                 <button type="submit" class="btn btn-default btn-save hvr-bounce-to-right" name="simpan" value="submit">
                     Simpan
                 </button>
-
             </div>
         </div>
     </section>
+
 </form>

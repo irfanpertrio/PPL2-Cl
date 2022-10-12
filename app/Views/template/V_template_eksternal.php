@@ -11,7 +11,7 @@
 
 <head>
   <!-- Basic Page Needs
-          ================================================== -->
+  ================================================== -->
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="icon" href="favicon.ico">
@@ -22,7 +22,7 @@
   <meta name="author" content="">
 
   <!-- Mobile Specific Metas
-          ================================================== -->
+  ================================================== -->
   <meta name="format-detection" content="telephone=no">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php echo view($style) ?>

@@ -1,8 +1,9 @@
 <!-- 
 ================================================== 
-    Contact Section Start
+Login Content
 ================================================== -->
-<section id="contact-section">
+
+<section id="login-section">
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-6 mb-5 mb-md-0">
@@ -16,7 +17,7 @@
                     <div class="contact-form">
                         <form id="contact-form" method="GET" action="/login">
 
-                            <div class="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s">
+                            <div clapss="form-group wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".6s">
                                 <input type="text" placeholder="Username" class="form-control" name="username" id="username">
                             </div>
 

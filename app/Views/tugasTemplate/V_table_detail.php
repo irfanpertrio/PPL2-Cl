@@ -1,6 +1,9 @@
+<!--
+==================================================
+Table Detail Content
+================================================== -->
 <?php echo view($navbar); ?>
 
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-offset-1 col-md-10">
@@ -34,6 +37,7 @@
         </div>
     </div>
 </div>
+
 <section id="button">
     <div class="contact-form">
         <div class="height d-flex justify-content-center align-items-center">

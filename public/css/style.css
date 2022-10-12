@@ -545,7 +545,7 @@ a:hover {
   transform: scale(1);
 }
 
-#hero-area {
+#tampilan {
   background: url("../images/background.jpeg") no-repeat 50%;
   background-size: cover;
   background-attachment: fixed;
@@ -554,7 +554,7 @@ a:hover {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   position: relative;
 }
-#hero-area:before {
+#tampilan:before {
   content: "";
   z-index: 9;
   background: rgba(255, 255, 255, 0.78);
@@ -564,11 +564,11 @@ a:hover {
   right: 0;
   bottom: 0;
 }
-#hero-area .block {
+#tampilan .block {
   position: relative;
   z-index: 9;
 }
-#hero-area h1 {
+#tampilan h1 {
   font-size: 40px;
   line-height: 50px;
   color: #333;
@@ -576,7 +576,7 @@ a:hover {
   margin-bottom: 15px;
   text-transform: uppercase;
 }
-#hero-area h2 {
+#tampilan h2 {
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 38px;
@@ -586,7 +586,7 @@ a:hover {
   font-family: "Roboto", sans-serif;
   margin-top: 25px;
 }
-#hero-area .btn {
+#tampilan .btn {
   background: #414141;
   border: none;
   color: #fff;
@@ -999,17 +999,17 @@ article {
   outline: 0;
 }
 
-#contact-section {
+#login-section {
   margin-top: 190px;
 }
-#contact-section .judul {
+#login-section .judul {
   text-align: center;
 }
-#contact-section .contact-form {
+#login-section .contact-form {
   margin-top: 42px;
   margin-left: 20px;
 }
-#contact-section .contact-form .btn-send {
+#login-section .contact-form .btn-send {
   color: #fff;
   outline: none;
   width: 30%;
@@ -1018,7 +1018,7 @@ article {
   border-color: #02b3ca;
   border-radius: 0;
 }
-#contact-section input {
+#login-section input {
   display: block;
   height: 40px;
   width: 95%;
@@ -1036,7 +1036,7 @@ article {
   box-shadow: none;
   -webkit-box-shadow: none;
 }
-#contact-section textarea {
+#login-section textarea {
   display: block;
   border-radius: 0;
   width: 100%;
@@ -1050,21 +1050,21 @@ article {
   box-shadow: none;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
-#contact-section .address, #contact-section .email, #contact-section .phone {
+#login-section .address, #login-section .email, #login-section .phone {
   text-align: center;
   background: #F7F7F7;
   padding: 20px 0 40px 0;
   margin-bottom: 20px;
 }
-#contact-section .address i, #contact-section .email i, #contact-section .phone i {
+#login-section .address i, #login-section .email i, #login-section .phone i {
   font-size: 45px;
   color: #02bdd5;
 }
-#contact-section .address h5, #contact-section .email h5, #contact-section .phone h5 {
+#login-section .address h5, #login-section .email h5, #login-section .phone h5 {
   font-size: 16px;
   line-height: 1.4;
 }
-#contact-section .address-details {
+#login-section .address-details {
   padding-top: 70px;
 }
 
