@@ -1,6 +1,6 @@
 <div>
     <center>
-        <table class="table">
+        <table border="1" align="center">
             <tr>
                 <th>NIM</th>
                 <th>Nama</th>

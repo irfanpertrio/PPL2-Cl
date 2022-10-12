@@ -39,7 +39,7 @@
                         <a href="<?php echo '/mahasiswa/temp/form_update/' . $row['id']; ?>"><button style="font-size:1vw;">Edit</button></a>
                     </td>
                     <td align="center">
-                        <a href="<?php echo '/mahasiswa/temp/delete/' . $row['id']; ?>"><button style="font-size:1vw;">Delete</button></a>
+                        <a href="<?php echo '/mahasiswa/delete/' . $row['id']; ?>"><button style="font-size:1vw;">Delete</button></a>
                     </td>
                 </tr>
             <?php
