@@ -82,7 +82,7 @@ class C_mahasiswa extends BaseController
         $result = $this->mahasiswa_model->input_mahasiswa($data);
         if ($result) {
             session()->setFlashdata('pesan', 'Data berhasil ditambahkan');
-            return redirect()->to('mahasiswa/temp');
+            return redirect()->to('mahasiswa');
         }
     }
 
@@ -119,7 +119,7 @@ class C_mahasiswa extends BaseController
         $result = $this->mahasiswa_model->update_mahasiswa($data);
         if ($result) {
             session()->setFlashdata('pesan', 'Data berhasil diupdate');
-            return redirect()->route('mahasiswa/temp');
+            return redirect()->route('mahasiswa');
         }
     }
 
@@ -134,7 +134,7 @@ class C_mahasiswa extends BaseController
         $data['mahasiswa'] = $this->mahasiswa_model->delete($id);
         if ($data) {
             session()->setFlashdata('pesan', 'Data berhasil dihapus');
-            return redirect()->to('mahasiswa/temp');
+            return redirect()->to('mahasiswa');
         }
     }
 }
