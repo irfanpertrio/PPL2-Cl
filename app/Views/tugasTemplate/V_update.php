@@ -11,7 +11,7 @@ Table Update Content
                 <div class="update">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-sm-6 col-xs-6">
+                            <div class="col-sm-12 col-xs-6">
                                 <h4 class="title pull-left">UPDATE DATA <?php echo $mahasiswa['Nama'] ?></h4>
                             </div>
                         </div>
@@ -20,6 +20,7 @@ Table Update Content
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>Foto</th>
                                     <th>NIM</th>
                                     <th>Nama</th>
                                     <th>Umur</th>
@@ -27,6 +28,13 @@ Table Update Content
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>
+                                        <form method="POST" action="/mahasiswa/input" enctype="multipart/form-data">
+                                            <div class="form-data">
+                                                <input type="file" name="foto">
+                                            </div>
+                                        </form>
+                                    </td>
                                     <td>
                                         <input type="text" name="nim" value="<?php echo ($mahasiswa['NIM']) ?>">
                                     </td>

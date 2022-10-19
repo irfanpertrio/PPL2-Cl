@@ -32,7 +32,7 @@ $routes->set404Override();
  * Route Definitions
  * --------------------------------------------------------------------
  */
-$routes->get('/',                                       'tugasTemplate\c_login::display_login');                              // Redirect to Login page
+$routes->get('/',                                       'tugasTemplate\C_login::display_login');                              // Redirect to Login page
 //? Routes to Page
 $routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->get('/welcome',                            'tugasTemplate\c_home::welcome');                           // Redirect to Selamat datang page

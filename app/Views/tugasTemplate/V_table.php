@@ -24,6 +24,17 @@ Table Mahasiswa Content
                                     <i class="fa fa-search"></i>
                                 </div>
                             </form>
+                            <section id="button">
+                                <div class="contact-form">
+                                    <div class="height d-flex justify-content-center align-items-center">
+                                        <a href="/mahasiswa">
+                                            <button type="button" class="btn btn-default btn-back hvr-bounce-to-right">
+                                                Kembali
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </div>
@@ -31,6 +42,7 @@ Table Mahasiswa Content
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>Foto</th>
                                 <th>NIM</th>
                                 <th>Nama</th>
                                 <th>Umur</th>
@@ -40,6 +52,12 @@ Table Mahasiswa Content
                         <tbody>
                             <?php foreach ($mahasiswa as $row) { ?>
                                 <tr>
+                                    <?php
+                                    if ($row['Foto'] == 0) {
+                                        echo "<td><center>Belum ada foto</td>";
+                                    } else {
+                                        echo "<td><center> <img src='images/mahasiswa/$row[Foto]' width='120' height='90'></td>";
+                                    } ?>
                                     <td><?php echo $row['NIM'] ?></td>
                                     <td><?php echo $row['Nama'] ?></td>
                                     <td><?php echo $row['Umur'] ?></td>
@@ -96,6 +114,18 @@ Table Mahasiswa Content
                             <tr>
                                 <td>Umur</td>
                                 <td><input type="number" id="umur" name="umur" placeholder="Umur"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Foto
+                                </td>
+                                <td>
+                                    <form method="POST" action="/mahasiswa/input" enctype="multipart/form-data">
+                                        <div>
+                                            <input type="file" name="foto">
+                                        </div>
+                                    </form>
+                                </td>
                             </tr>
                         </table>
                     </div>

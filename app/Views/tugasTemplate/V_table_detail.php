@@ -19,6 +19,7 @@ Table Detail Content
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>Foto</th>
                                 <th>NIM</th>
                                 <th>Nama</th>
                                 <th>Umur</th>
@@ -26,6 +27,12 @@ Table Detail Content
                         </thead>
                         <tbody>
                             <tr>
+                                <?php
+                                if ($mahasiswa['Foto'] == 0) {
+                                    echo "<td><center>Belum ada foto</td>";
+                                } else {
+                                    echo "<td><center> <img src='images/mahasiswa/$mahasiswa[Foto]' width='120' height='90'></td>";
+                                } ?>
                                 <td><?php echo $mahasiswa['NIM'] ?></td>
                                 <td><?php echo $mahasiswa['Nama'] ?></td>
                                 <td><?php echo $mahasiswa['Umur'] ?></td>

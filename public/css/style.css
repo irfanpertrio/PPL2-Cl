@@ -105,11 +105,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 0;
 }
 .panel .panel-heading .form-inputs{
-  margin-left: 630px;
+  margin-left: 7vh;
+  width: fit-content;
 }
 .form-inputs{
     position:relative;
-    top: 1px;
+    top: -1px;
     width: 28%;
     font-family: "Roboto", sans-serif;
 }

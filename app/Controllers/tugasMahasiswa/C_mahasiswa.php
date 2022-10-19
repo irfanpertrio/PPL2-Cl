@@ -77,6 +77,7 @@ class C_mahasiswa extends BaseController
                 'NIM'   => $this->request->getVar('nim'),
                 'Nama'  => $this->request->getVar('nama'),
                 'Umur'  => $this->request->getVar('umur'),
+                'Foto'  => $this->request->getVar('foto'),
             ];
 
         $result = $this->mahasiswa_model->input_mahasiswa($data);
@@ -114,6 +115,7 @@ class C_mahasiswa extends BaseController
                 'nim'   => $this->request->getVar('nim'),
                 'nama'  => $this->request->getVar('nama'),
                 'umur'  => $this->request->getVar('umur'),
+                'foto'  => $this->request->getVar('foto'),
             ];
 
         $result = $this->mahasiswa_model->update_mahasiswa($data);
