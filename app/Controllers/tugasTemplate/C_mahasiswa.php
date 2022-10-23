@@ -2,7 +2,7 @@
 
 namespace App\Controllers\tugasTemplate;
 
-use App\Models\m_mahasiswa;
+use App\Models\M_mahasiswa;
 use App\Controllers\BaseController;
 
 class C_mahasiswa extends BaseController
@@ -27,6 +27,22 @@ class C_mahasiswa extends BaseController
         echo view(TEMPLATE_2, $data);
     }
 
+    /** 
+     ** display_chart
+     * @return  function    view chart of years of Mahasiswa
+     * TODO: Menampilkan char umur mahasiswa
+     */
+    public function display_chart()
+    {
+        $data['style']          = STYLE;
+        $data['navbar']         = NAVBAR;
+        $data['footer']         = FOOTER;
+        $data['mahasiswa']      = $this->mahasiswa_model->get_mahasiswa();
+        $data['nama']           = $this->mahasiswa_model->get_nama_depan_mahasiswa();
+        $data[CONTENT]          = "tugasTemplate/V_chart";
+        echo view(TEMPLATE_2, $data);
+    }
+
     /**
      ** display_detail
      * @param   var         $id
@@ -43,7 +59,7 @@ class C_mahasiswa extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Mahasiswa Tidak ditemukan !');
         }
 
-        $data[CONTENT] = "tugasTemplate/v_table_detail";
+        $data[CONTENT] = "tugasTemplate/V_table_detail";
         echo view(TEMPLATE_2, $data);
     }
 
@@ -59,7 +75,7 @@ class C_mahasiswa extends BaseController
         $data['navbar']     = NAVBAR;
         $data['footer']     = FOOTER;
         $data['mahasiswa']  = $this->mahasiswa_model->find($id);
-        $data[CONTENT]      = "tugasTemplate/v_update";
+        $data[CONTENT]      = "tugasTemplate/V_update";
         echo view(TEMPLATE_2, $data);
     }
 
@@ -75,7 +91,7 @@ class C_mahasiswa extends BaseController
         $data['footer']     = FOOTER;
         $data['nama']       = $this->request->getVar('nama');
         $data['mahasiswa']  = $this->mahasiswa_model->search_mahasiswa($data);
-        $data[CONTENT]      = "tugasTemplate/v_table";
+        $data[CONTENT]      = "tugasTemplate/V_table";
         return view(TEMPLATE_2, $data);
     }
 }

@@ -12,7 +12,7 @@ class C_home extends BaseController
      */
     public function display()
     {
-        $data[CONTENT] = "tugasMahasiswa/v_mahasiswa_home";
+        $data[CONTENT] = "tugasMahasiswa/V_mahasiswa_home";
         echo view(TEMPLATE_1, $data);
     }
 }

@@ -27,6 +27,9 @@
                                   <a class="nav-link" href="/mahasiswa">Mahasiswa</a>
                               </li>
                               <li class="nav-item">
+                                  <a class="nav-link" href="/chart">Chart</a>
+                              </li>
+                              <li class="nav-item">
                                   <a class="nav-link" href="/dashboard/temp">Template Awal</a>
                               </li>
                               <li class="nav-item">

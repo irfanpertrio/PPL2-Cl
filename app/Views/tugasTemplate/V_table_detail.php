@@ -30,9 +30,9 @@ Table Detail Content
                                 <?php
                                 if ($mahasiswa['Foto'] == 0) {
                                     echo "<td><center>Belum ada foto</td>";
-                                } else {
-                                    echo "<td><center> <img src='images/mahasiswa/$mahasiswa[Foto]' width='120' height='90'></td>";
-                                } ?>
+                                } else { ?>
+                                    <td><img src="<?php echo '/images/mahasiswa/' . $mahasiswa['Foto']; ?>" width='120' height='90' alt="Foto Mahasiswa"></td>
+                                <?php } ?>
                                 <td><?php echo $mahasiswa['NIM'] ?></td>
                                 <td><?php echo $mahasiswa['Nama'] ?></td>
                                 <td><?php echo $mahasiswa['Umur'] ?></td>

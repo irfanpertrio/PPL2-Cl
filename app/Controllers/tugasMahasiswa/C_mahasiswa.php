@@ -2,7 +2,7 @@
 
 namespace App\Controllers\tugasMahasiswa;
 
-use App\Models\m_mahasiswa;
+use App\Models\M_mahasiswa;
 use App\Controllers\BaseController;
 
 class C_mahasiswa extends BaseController
@@ -37,7 +37,7 @@ class C_mahasiswa extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Data Mahasiswa Tidak ditemukan !');
         }
 
-        $data[CONTENT] = "tugasMahasiswa/v_mahasiswa_detail";
+        $data[CONTENT] = "tugasMahasiswa/V_mahasiswa_detail";
         echo view(TEMPLATE_1, $data);
     }
 
@@ -48,7 +48,7 @@ class C_mahasiswa extends BaseController
      */
     public function display_input()
     {
-        $data[CONTENT] = "tugasMahasiswa/v_mahasiswa_input";
+        $data[CONTENT] = "tugasMahasiswa/V_mahasiswa_input";
         echo view(TEMPLATE_1, $data);
     }
 
@@ -61,7 +61,7 @@ class C_mahasiswa extends BaseController
     function display_update($id)
     {
         $data['mahasiswa']  = $this->mahasiswa_model->find($id);
-        $data[CONTENT]      = "tugasMahasiswa/v_mahasiswa_update";
+        $data[CONTENT]      = "tugasMahasiswa/V_mahasiswa_update";
         return view(TEMPLATE_1, $data);
     }
 
@@ -77,7 +77,7 @@ class C_mahasiswa extends BaseController
                 'NIM'   => $this->request->getVar('nim'),
                 'Nama'  => $this->request->getVar('nama'),
                 'Umur'  => $this->request->getVar('umur'),
-                'Foto'  => $this->request->getVar('foto'),
+                'Foto'  => $this->request->getFile('foto'),
             ];
 
         $result = $this->mahasiswa_model->input_mahasiswa($data);
@@ -97,7 +97,7 @@ class C_mahasiswa extends BaseController
 
         $data['nama']       = $this->request->getVar('nama');
         $data['mahasiswa']  = $this->mahasiswa_model->search_mahasiswa($data);
-        $data[CONTENT]      = "tugasMahasiswa/v_mahasiswa_table";
+        $data[CONTENT]      = "tugasMahasiswa/V_mahasiswa_table";
         return view(TEMPLATE_1, $data);
     }
 
@@ -115,8 +115,11 @@ class C_mahasiswa extends BaseController
                 'nim'   => $this->request->getVar('nim'),
                 'nama'  => $this->request->getVar('nama'),
                 'umur'  => $this->request->getVar('umur'),
-                'foto'  => $this->request->getVar('foto'),
+                'foto'  => $this->request->getFile('foto'),
             ];
+
+        $foto_lama = $this->mahasiswa_model->find($id);
+        $data['foto_lama'] = $foto_lama['Foto'];
 
         $result = $this->mahasiswa_model->update_mahasiswa($data);
         if ($result) {
@@ -133,7 +136,8 @@ class C_mahasiswa extends BaseController
      */
     public function delete($id)
     {
-        $data['mahasiswa'] = $this->mahasiswa_model->delete($id);
+        $mahasiswa = $this->mahasiswa_model->find($id);
+        $data['mahasiswa'] = $this->mahasiswa_model->deleteMahasiswa($mahasiswa);
         if ($data) {
             session()->setFlashdata('pesan', 'Data berhasil dihapus');
             return redirect()->to('mahasiswa');

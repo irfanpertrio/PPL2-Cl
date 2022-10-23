@@ -4,7 +4,7 @@ Table Update Content
 ================================================== -->
 <?php echo view($navbar); ?>
 
-<form action="<?php echo '/mahasiswa/update/' . $mahasiswa['id'] ?>" method="POST">
+<form action="<?php echo '/mahasiswa/update/' . $mahasiswa['id'] ?>" method="POST" enctype="multipart/form-data">
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-offset-1 col-md-10">

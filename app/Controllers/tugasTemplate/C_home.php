@@ -14,7 +14,7 @@ class C_home extends BaseController
     {
         $data['style']  = STYLE;
         $data['navbar'] = NAVBAR;
-        $data[CONTENT]  = "tugasTemplate/v_home";
+        $data[CONTENT]  = "tugasTemplate/V_home";
         echo view(TEMPLATE_2, $data);
     }
 
@@ -27,7 +27,7 @@ class C_home extends BaseController
         $data['style']  = STYLE;
         $data['navbar'] = NAVBAR;
         $data['footer'] = FOOTER;
-        $data[CONTENT]  = "tugasTemplate/v_selamat_datang";
+        $data[CONTENT]  = "tugasTemplate/V_selamat_datang";
         echo view(TEMPLATE_2, $data);
     }
 }

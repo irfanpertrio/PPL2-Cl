@@ -24,17 +24,6 @@ Table Mahasiswa Content
                                     <i class="fa fa-search"></i>
                                 </div>
                             </form>
-                            <section id="button">
-                                <div class="contact-form">
-                                    <div class="height d-flex justify-content-center align-items-center">
-                                        <a href="/mahasiswa">
-                                            <button type="button" class="btn btn-default btn-back hvr-bounce-to-right">
-                                                Kembali
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </section>
                         </div>
                     </div>
                 </div>
@@ -99,7 +88,8 @@ Table Mahasiswa Content
                     <i data-dismiss="modal" aria-label="Close" class="fa fa-close"></i>
                 </div>
             </div>
-            <form action="/mahasiswa/input" method="POST">
+            <form action="/mahasiswa/input" method="POST" enctype="multipart/form-data">
+                <?php echo csrf_field(); ?>
                 <div class="modal-body">
                     <div>
                         <table class="table">
@@ -130,7 +120,6 @@ Table Mahasiswa Content
                         </table>
                     </div>
                 </div>
-                <?php echo csrf_field(); ?>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Kembali</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>

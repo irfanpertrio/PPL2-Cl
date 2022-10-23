@@ -30,6 +30,19 @@ class M_mahasiswa extends Model
     }
 
     /**
+     ** get_nama_depan_mahasiswa
+     * TODO: Menampilkan data nama depan semua Mahasiswa
+     */
+    public function get_nama_depan_mahasiswa()
+    {
+        $data = $this->db->query("SELECT substring_index(Nama,' ',1)
+                                        AS Nama
+                                        FROM mahasiswa
+                                        ORDER BY Nama")->getResultArray();
+        return $data;
+    }
+
+    /**
      ** search_mahasiswa
      * @param  array $data
      * TODO: Mencari data mahasiswa 
@@ -51,11 +64,14 @@ class M_mahasiswa extends Model
      */
     public function input_mahasiswa($data)
     {
-        $nim    = $data['NIM'];
-        $nama   = $data['Nama'];
-        $umur   = $data['Umur'];
-        $foto   = $data['Foto'];
-        $query  = $this->db->prepare(static function ($db) {
+        $nim            = $data['NIM'];
+        $nama           = $data['Nama'];
+        $umur           = $data['Umur'];
+        $foto           = $data['Foto'];
+
+        $berkasFoto     = $foto;
+        $namaFileFoto   = $berkasFoto->getRandomName();
+        $query          = $this->db->prepare(static function ($db) {
             return $db->table('mahasiswa')->insert([
                 'Nama'  => '',
                 'NIM'   => '',
@@ -64,7 +80,11 @@ class M_mahasiswa extends Model
             ]);
         });
 
-        $result = $query->execute($nama, $nim, $umur, $foto);
+        $result = $query->execute($nama, $nim, $umur, $namaFileFoto);
+        if ($result) {
+            $berkasFoto->move('images/mahasiswa/', $namaFileFoto);
+        }
+
         return $result;
     }
 
@@ -80,19 +100,61 @@ class M_mahasiswa extends Model
         $nama   = $data['nama'];
         $umur   = $data['umur'];
         $foto   = $data['foto'];
-        $sql    = 'UPDATE mahasiswa 
-                        SET Nama=:nama:, Umur=:umur:, NIM=:nim:, Foto=:foto:
-                        WHERE id =:id:';
-        $result = $this->db->query(
-            $sql,
-            [
-                'id'    => $id,
-                'nama'  => $nama,
-                'nim'   => $nim,
-                'umur'  => $umur,
-                'foto'  => $foto,
-            ]
-        );
+
+        $berkasFoto = $foto;
+        $namaFileFoto = $berkasFoto->getRandomName();
+        if ($foto->getName() !== "") {
+            $sql    = 'UPDATE mahasiswa 
+                            SET Nama=:nama:, Umur=:umur:, NIM=:nim:, Foto=:foto:
+                            WHERE id =:id:';
+            $result = $this->db->query(
+                $sql,
+                [
+                    'id'    => $id,
+                    'nama'  => $nama,
+                    'nim'   => $nim,
+                    'umur'  => $umur,
+                    'foto'  => $namaFileFoto,
+                ]
+            );
+            if ($result) {
+                $berkasFoto->move('images/mahasiswa/', $namaFileFoto);
+                if ($data['foto_lama'] !== "") {
+                    unlink('./images/mahasiswa/' . $data['foto_lama']);
+                }
+            }
+        } else {
+            $sql    = 'UPDATE mahasiswa 
+                            SET Nama=:nama:, Umur=:umur:, NIM=:nim:
+                            WHERE id =:id:';
+            $result = $this->db->query(
+                $sql,
+                [
+                    'id'    => $id,
+                    'nama'  => $nama,
+                    'nim'   => $nim,
+                    'umur'  => $umur,
+                ]
+            );
+        }
+
+        return $result;
+    }
+
+    /**
+     ** delete_mahasiswa
+     * @param  array $mahasiswa
+     * TODO: Menghapus data mahasiswa 
+     */
+    function deleteMahasiswa($mahasiswa)
+    {
+        if ($mahasiswa['Foto'] !== null) {
+            unlink('./images/mahasiswa/' . $mahasiswa['Foto']);
+        }
+
+        $id = $mahasiswa['id'];
+        $result = $this->db->query("DELETE FROM mahasiswa 
+                                        WHERE id = '$id'");
 
         return $result;
     }

@@ -13,7 +13,7 @@ class C_login extends BaseController
     public function display_login()
     {
         $data['style']  = STYLE;
-        $data[CONTENT]  = "tugasTemplate/v_login";
+        $data[CONTENT]  = "tugasTemplate/V_login";
         echo view(TEMPLATE_2, $data);
     }
 }
